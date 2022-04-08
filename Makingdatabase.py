@@ -34,10 +34,31 @@ def add_new_toppings(me, toppings):
 
 def print_about_me(me_data):
 
-    print("Hi Joe, my name is", me_data['name'], 'and my student ID is', me_data['student_ID'], end='\n') 
+    #printing my name, student ID, and pizza toppings
+    print("Hi Joe, my name is " + me_data['name'] + ", and my student ID is " + str(me_data['student_ID']))
+    print('My ideal pizza has ', end='')
+    for p in me_data['pizza_toppings']:
+        print(p, end=', ')
 
-    for m in me_data['movies']:
-        print(m['movie'], end=', ')
+    words = ('\nI like to watch ')
+    for a,s in enumerate(me_data['movies']):
+        words += s['genre']
+        if a < len(me_data['movies']) - 1:
+            words += ', '
+        else: 
+            words += '. '
+    print(words)
 
+    #printing movies I like to watch
+    sentence = ('Some of my favourites are ')
+    for i,m in enumerate(me_data['movies']):
+        sentence += m['movie']
+        if i < len(me_data['movies']) - 1:
+            sentence += ', '
+        else: 
+            sentence += '. '
+    print(sentence)
+ 
+    
 
 main()
